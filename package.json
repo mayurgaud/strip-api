@@ -1,0 +1,33 @@
+{
+  "name": "stripapi",
+  "version": "1.0.0",
+  "description": "Restful stripapi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayurgaud/strip-api.git"
+  },
+  "keywords": [
+    "rest",
+    "nodejs",
+    "expres"
+  ],
+  "author": "Mayur Gaud",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayurgaud/strip-api/issues"
+  },
+  "homepage": "https://github.com/mayurgaud/strip-api#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mongoose": "^4.9.8"
+  }
+}

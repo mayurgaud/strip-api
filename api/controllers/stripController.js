@@ -4,11 +4,6 @@ var mongoose = require('mongoose'),
     Task = mongoose.model('strips');
 
 exports.list_all_strips = function (req, res) {
-    // res.setHeader('Access-Control-Allow-Origin', '*');
-    // res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
-    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
-    // res.setHeader('Access-Control-Allow-Credentials', true); // If needed
-
     var year = req.query.year;
     var month = req.query.month;
     var limit = 5;
@@ -20,6 +15,7 @@ exports.list_all_strips = function (req, res) {
             res.json(task);
         });
     } else if (year) {
+        console.log(year);
         Task.find({imageYear: year}, {}, {sort: {"imageMonth": -1}, limit: limit}, function (err, task) {
             if (err)
                 res.send(err);

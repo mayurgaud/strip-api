@@ -13,10 +13,10 @@ var StripSchema = new Schema({
         type: String
     },
     imageYear: {
-        type: String
+        type: Number
     },
     imageMonth: {
-        type: String
+        type: Number
     }
 });
 

@@ -19,7 +19,6 @@ exports.list_all_strips = function (req, res) {
             res.json(task);
         });
     } else if (year) {
-        console.log(year);
         Task.find({imageYear: year}, {}, {
             sort: {"imageMonth": -1},
             skip: parseInt(offset),

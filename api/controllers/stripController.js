@@ -20,25 +20,29 @@ exports.list_all_strips = function (req, res) {
             res.json(task);
         });
     } else if (year) {
-        Task.find({imageYear: year}, function (err, task) {
+        Task.find({imageYear: year}, {}, {sort: {"imageMonth": -1}, limit: limit}, function (err, task) {
             if (err)
                 res.send(err);
             res.json(task);
         });
     } else if (month) {
-        Task.find({imageMonth: month}, {}, {limit: limit}, function (err, task) {
+        Task.find({imageMonth: month}, {}, {sort: {"imageYear": -1}, limit: limit}, function (err, task) {
             if (err)
                 res.send(err);
             res.json(task);
         });
     } else {
         var offset = req.query.offset ? req.query.offset : 0;
-        Task.find({}, {}, {skip: parseInt(offset), limit: limit}, function (err, task) {
-            if (err){
-                return res.send(err);
-            }
-            res.json(task);
-        });
+        Task.find({}, {}, {
+                sort: {"imageYear": -1, "imageMonth": -1},
+                skip: parseInt(offset), limit: limit
+            },
+            function (err, task) {
+                if (err) {
+                    return res.send(err);
+                }
+                res.json(task);
+            });
     }
 };
 

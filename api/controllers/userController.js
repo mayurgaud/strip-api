@@ -5,22 +5,22 @@ var mongoose = require('mongoose'),
 var passwordHash = require('password-hash');
 var jwt = require('jsonwebtoken');
 var config = require('../../config');
-// exports.addUser = function (req, res) {
-// // create a sample user
-//     var nick = new User({
-//         name: 'mayuradmin',
-//         password: passwordHash.generate('frontech9'),
-//         admin: true
-//     });
-//
-//     // save the sample user
-//     nick.save(function (err) {
-//         if (err) throw err;
-//
-//         console.log('User saved successfully');
-//         res.json({success: true});
-//     });
-// };
+exports.addUser = function (req, res) {
+// create a sample user
+    var nick = new User({
+        name: 'mayuradmin',
+        password: passwordHash.generate('frontech9'),
+        admin: true
+    });
+
+    // save the sample user
+    nick.save(function (err) {
+        if (err) throw err;
+
+        console.log('User saved successfully');
+        res.json({success: true});
+    });
+};
 
 exports.authenticate = function (req, res) {
     // find the user
